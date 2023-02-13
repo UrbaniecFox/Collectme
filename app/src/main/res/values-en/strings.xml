@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Collectme</string>
+    <string name="Title_form_inscription">Sign Up</string>
+    <string name="motDePasse_text">Password</string>
+    <string name="email_text">Mail</string>
+</resources>
