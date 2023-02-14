@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Collectme</string>
     <string name="Title_form_inscription">Formulaire d\'inscription</string>
     <string name="motDePasse_text">Mot de passe</string>
     <string name="email_text">Email</string>
     <string name="inscription_text">S\'inscrire</string>
     <string name="allerAConnexion">Connexion</string>
+    <string name="Title_form_connexion">Formulaire de connexion</string>
+    <string name="inscription_reussite">Inscription réussie</string>
+    <string name="inscription_echec">"Une erreur est survenue lors de l'Inscription "</string>
 </resources>

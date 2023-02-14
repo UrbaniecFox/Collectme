@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Collectme</string>
+    <string name="app_name" translatable="false">CollectMe</string>
     <string name="Title_form_inscription">Title_form_inscription</string>
     <string name="email_text">email_text</string>
     <string name="motDePasse_text">mot de passe</string>
@@ -7,4 +7,7 @@
     <string name="allerAConnexion">Connexion</string>
     <string name="inscription_reussite">inscription_reussite</string>
     <string name="inscription_echec">inscription_echec</string>
+    <string name="Title_form_connexion">Formulaire de connexion</string>
+    <string name="connexion_reussite">bravo !</string>
+    <string name="connexion_echec">Une erreur est survenue</string>
 </resources>
