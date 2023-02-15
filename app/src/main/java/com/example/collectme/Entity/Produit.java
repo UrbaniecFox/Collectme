@@ -5,8 +5,9 @@ package com.example.collectme.Entity;
 public class Produit {
    private String id;
    private String nomProduit;
-   private float prixht;
-   private float prixttc;
+    private String descriptionProduit;
+   private float prixHt;
+   private float prixTtc;
 
     public String getNomProduit() {
         return nomProduit;
@@ -24,25 +25,33 @@ public class Produit {
         this.id = id;
     }
 
-    public float getPrixht() {
-        return prixht;
+    public float getPrixHt() {
+        return prixHt;
     }
 
-    public void setPrixht(float prixht) {
-        if(prixht > 1000.0f){
-            this.prixht = 1000.0f;
+    public void setPrixHt(float prixHt) {
+        if(prixHt > 1000.0f){
+            this.prixHt = 1000.0f;
         }else{
-            this.prixht = prixht;
+            this.prixHt = prixHt;
         }
 
     }
 
-    public float getPrixttc() {
-        return prixttc;
+    public float getPrixTtc() {
+        return prixTtc;
     }
 
-    public void setPrixttc(float prixttc) {
-        this.prixttc = prixttc;
+    public void setPrixTtc(float prixTtc) {
+        this.prixTtc = prixTtc;
+    }
+
+    public String getDescriptionProduit() {
+        return descriptionProduit;
+    }
+
+    public void setDescriptionProduit(String descriptionProduit) {
+        this.descriptionProduit = descriptionProduit;
     }
 
     @Override
@@ -50,8 +59,9 @@ public class Produit {
         return "Produit{" +
                 "id='" + id + '\'' +
                 ", nomProduit='" + nomProduit + '\'' +
-                ", prixht=" + prixht +
-                ", prixttc=" + prixttc +
+                ", descriptionProduit='" + descriptionProduit + '\'' +
+                ", prixHt=" + prixHt +
+                ", prixTtc=" + prixTtc +
                 '}';
     }
 }
