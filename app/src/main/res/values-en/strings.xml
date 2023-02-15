@@ -8,4 +8,9 @@
     <string name="inscription_reussite">Sign up success</string>
     <string name="inscription_echec">Sign up error</string>
     <string name="Title_form_connexion">Log in</string>
+    <string name="connexion_reussite">Welcome</string>
+    <string name="connexion_echec">"Log in error "</string>
+    <string name="Aucun_produit_text">Produits not found</string>
+    <string name="prix_ttc_text">Prix TTC</string>
+    <string name="prix_ht_text">prix HT</string>
 </resources>

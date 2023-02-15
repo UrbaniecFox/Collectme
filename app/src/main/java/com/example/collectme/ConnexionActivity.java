@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -14,15 +13,12 @@ import android.widget.Toast;
 import com.example.collectme.Entity.Produit;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 // Page de connexion
 public class ConnexionActivity extends AppCompatActivity {
@@ -39,8 +35,8 @@ public class ConnexionActivity extends AppCompatActivity {
         Produit unProduit = new Produit();
         unProduit.setId("id1");
         unProduit.setNomProduit("nouveau jeu trop bien");
-        unProduit.setPrixht(9.99f);
-        unProduit.setPrixttc(unProduit.getPrixht()*1.2f);
+        unProduit.setPrixHt(9.99f);
+        unProduit.setPrixTtc(unProduit.getPrixHt()*1.2f);
         Log.d("objet_Produit", unProduit.toString());
 
         unProduit = new Produit();
@@ -108,7 +104,9 @@ public class ConnexionActivity extends AppCompatActivity {
             String uid = user.getUid();
             Toast.makeText(this, email + " "+  uid, Toast.LENGTH_LONG).show();
             //Toast.makeText(this, R.string.connexion_reussite, Toast.LENGTH_LONG).show();
-
+            Intent listeProduitActivityIntent = new Intent(this, ListeProduitsActivity.class);
+            startActivity(listeProduitActivityIntent);
+            finish();
 
         }else{
             Toast.makeText(this, R.string.connexion_echec, Toast.LENGTH_LONG).show();
