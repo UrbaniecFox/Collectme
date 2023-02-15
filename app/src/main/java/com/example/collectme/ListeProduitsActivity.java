@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.collectme.Adapter.ProduitAdapter;
 import com.example.collectme.Entity.Produit;
@@ -34,6 +36,8 @@ public class ListeProduitsActivity extends AppCompatActivity {
         //on récupère depuis la vue les composant pour pouvoir intéragir avec.
         sp_listproduit = findViewById(R.id.sp_listeproduit);
         rv_listeproduit = findViewById(R.id.rv_listeProduits);
+
+
     }
     public void getAllproduit(){
         ProduitManager pm =  new ProduitManager();
@@ -69,6 +73,13 @@ public class ListeProduitsActivity extends AppCompatActivity {
         //On relie l'adapter au re
         rv_listeproduit.setAdapter(produitAdapter);
 
-
+        produitAdapter.setOnClickLigneProduit(new ProduitAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(int position) {
+                Produit leProduitSelectionner = listProduits.get(position);
+                Log.d("afficheProduit",leProduitSelectionner.toString() );
+                Toast.makeText(ListeProduitsActivity.this,leProduitSelectionner.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
