@@ -8,4 +8,9 @@
     <string name="Title_form_connexion">Formulaire de connexion</string>
     <string name="inscription_reussite">Inscription réussie</string>
     <string name="inscription_echec">"Une erreur est survenue lors de l'Inscription "</string>
+    <string name="connexion_reussite">L\'authentification est un succès</string>
+    <string name="connexion_echec">L\'authentification est un échec</string>
+    <string name="Aucun_produit_text">Aucun produit</string>
+    <string name="prix_ttc_text">Prix TTC</string>
+    <string name="prix_ht_text">prix HT</string>
 </resources>
