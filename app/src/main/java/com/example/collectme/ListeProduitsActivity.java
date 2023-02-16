@@ -1,12 +1,14 @@
 package com.example.collectme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -24,6 +26,23 @@ public class ListeProduitsActivity extends AppCompatActivity {
     private RecyclerView rv_listeproduit;
     private ProduitAdapter produitAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<Produit> listeProduits;
+
+    ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            Produit unProduit = listeProduits.get(viewHolder.getAdapterPosition());
+            Toast.makeText(ListeProduitsActivity.this, "Delete "+ unProduit.toString(), Toast.LENGTH_SHORT).show();
+            listeProduits.remove(viewHolder.getAdapterPosition());
+            produitAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +82,7 @@ public class ListeProduitsActivity extends AppCompatActivity {
 
     }
     public void remplirRecyclerView(ArrayList<Produit> listProduits){
+        listeProduits =listProduits;
         // Gestion du recylerView
         //on renseigne la liste des produits à notre Adapter
         produitAdapter = new ProduitAdapter(listProduits);
@@ -76,10 +96,18 @@ public class ListeProduitsActivity extends AppCompatActivity {
         produitAdapter.setOnClickLigneProduit(new ProduitAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(int position) {
-                Produit leProduitSelectionner = listProduits.get(position);
+                Produit leProduitSelectionner = listeProduits.get(position);
                 Log.d("afficheProduit",leProduitSelectionner.toString() );
-                Toast.makeText(ListeProduitsActivity.this,leProduitSelectionner.toString(), Toast.LENGTH_SHORT).show();
+
+                Intent detailProduitIntent = new Intent(ListeProduitsActivity.this, DetailProduitactivity.class);
+                detailProduitIntent.putExtra("produit", leProduitSelectionner);
+                startActivity(detailProduitIntent);
+                finish();
             }
         });
+        ItemTouchHelper helper = new ItemTouchHelper(callback);
+        helper.attachToRecyclerView(rv_listeproduit);
+
     }
+
 }

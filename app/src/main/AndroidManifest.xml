@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Collectme"
         tools:targetApi="31">
         <activity
+            android:name=".DetailProduitactivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ListeProduitsActivity"
             android:exported="false">
             <meta-data
